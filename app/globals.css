@@ -1,0 +1,215 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+  --radius: 0;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    @apply bg-white text-black;
+    font-family: var(--font-sans);
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #999;
+  }
+}
+
+/* ─── NAV HAMBURGER ─────────────────────────────────────── */
+.hamburger-line {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: currentColor;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  transform-origin: center;
+}
+
+.hamburger-open .hamburger-line:nth-child(1) {
+  transform: translateY(5px) rotate(45deg);
+}
+.hamburger-open .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+.hamburger-open .hamburger-line:nth-child(3) {
+  transform: translateY(-5px) rotate(-45deg);
+}
+
+/* ─── MOBILE NAV OVERLAY ────────────────────────────────── */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.97);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 4rem 2.5rem;
+  transform: translateX(-100%);
+  transition: transform 0.35s cubic-bezier(0.77, 0, 0.18, 1);
+}
+.nav-overlay.open {
+  transform: translateX(0);
+}
+
+/* ─── PROJECT ROW ────────────────────────────────────────── */
+.project-row {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  border-top: 1px solid #e5e5e5;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.project-row:last-child {
+  border-bottom: 1px solid #e5e5e5;
+}
+.project-row:hover {
+  background: #fafafa;
+}
+
+@media (max-width: 768px) {
+  .project-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── PROJECT EXPANDED ───────────────────────────────────── */
+.project-expanded {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  background: #fff;
+  border-top: 1px solid #e5e5e5;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.77, 0, 0.18, 1);
+}
+.project-expanded.expanded {
+  max-height: 600px;
+  overflow: visible;
+}
+
+@media (max-width: 768px) {
+  .project-expanded {
+    grid-template-columns: 1fr;
+  }
+  .project-expanded.expanded {
+    max-height: none;
+  }
+}
+
+/* ─── HORIZONTAL SCROLL PANEL ────────────────────────────── */
+.horizontal-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: flex;
+  align-items: stretch;
+  scrollbar-width: thin;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+  height: 3px;
+}
+
+/* ─── ABOUT SECTION ─────────────────────────────────────── */
+.timeline-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #000;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+/* ─── CONTACT ACCORDION ─────────────────────────────────── */
+.contact-accordion {
+  border-top: 1px solid #e5e5e5;
+}
+.contact-accordion:last-child {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* ─── LINK HOVER ─────────────────────────────────────────── */
+.link-underline {
+  position: relative;
+  text-decoration: none;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.2s ease;
+}
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* ─── PAGE TRANSITION ────────────────────────────────────── */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-enter {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+/* ─── VIDEO THUMB ────────────────────────────────────────── */
+.video-thumb-container {
+  position: relative;
+  overflow: hidden;
+}
+.video-thumb-container::after {
+  content: "▶";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: white;
+  background: rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.video-thumb-container:hover::after {
+  opacity: 1;
+}
