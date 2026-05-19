@@ -107,101 +107,140 @@
 }
 
 /* ─── PROJECT ITEM (BIG.DK STYLE) ────────────────────────── */
-.project-item {
-  position: relative;
-  border-top: 1px solid #e5e5e5;
-  cursor: pointer;
-  overflow: hidden;
-  transition: background 0.15s ease;
-}
-
-.project-item:last-child {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-/* Collapsed state: single full-width image */
-.project-cover {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  background: #111;
-}
-
-.project-cover img {
-  width: 100%;
-  display: block;
-  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    filter 0.4s ease;
-  transform-origin: center center;
-}
-
-.project-item:hover .project-cover img {
-  transform: scale(1.02);
-}
-
-/* Expanded state overlay */
-.project-expanded-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: row;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: 10;
-}
-
-.project-item.is-expanded .project-expanded-overlay {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* When expanded, image zooms in slightly */
-.project-item.is-expanded .project-cover img {
-  transform: scale(1.06);
-  filter: brightness(0.5);
-}
-
-/* Left info panel */
-.project-left-panel {
-  width: 240px;
-  flex-shrink: 0;
-  padding: 2rem 1.5rem;
+/* ─── PROJECT ROW CONTAINER ────────────────────────── */
+.project-row-container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  gap: 1rem;
-  color: #fff;
-  overflow-y: auto;
+  margin-bottom: 4rem;
+  border-top: 1px solid #f3f4f6;
+  padding-top: 2.5rem;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-@media (max-width: 768px) {
-  .project-left-panel {
-    width: 160px;
-    padding: 1.25rem 1rem;
+.project-row-container:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+@media (min-width: 768px) {
+  .project-row-container {
+    margin-bottom: 5.5rem;
+    padding-top: 3.5rem;
   }
 }
 
-/* Right info panel (description + scroll) */
-.project-right-panel {
-  flex: 1;
+/* Base Component Overrides via Tailwind */
+/* The layout logic has been migrated entirely to ProjectCard.tsx using Flexbox and Framer Motion */
+
+/* Right Column Collapsed Image Container */
+.project-collapsed-image-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  position: relative;
+  background-color: #fafafa;
+}
+
+@media (min-width: 768px) {
+  .project-collapsed-image-wrapper {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+.project-collapsed-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Hover effects for the entire collapsed card */
+.project-card-grid:not(.is-expanded):hover .project-collapsed-image-wrapper img {
+  transform: scale(1.02);
+}
+
+/* Right Column Expanded Horizontal Scroll Container */
+.project-expanded-scroll-wrapper {
+  width: 100%;
+  height: 280px;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 2rem 1.5rem;
+  flex-direction: row;
   overflow-x: auto;
   overflow-y: hidden;
-  color: #fff;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255,255,255,0.3) transparent;
+  align-items: stretch;
+  background-color: #ffffff;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  user-select: none;
+  -webkit-user-select: none;
 }
 
-.project-right-panel::-webkit-scrollbar {
-  height: 3px;
+@media (min-width: 768px) {
+  .project-card-grid.is-expanded .project-expanded-scroll-wrapper {
+    height: 60vh;
+    min-height: 400px;
+    max-height: 560px;
+  }
 }
 
-.project-right-panel::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.3);
+/* Scrollbar Hiding */
+.scrollbar-none {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+/* Expanded scroll content blocks */
+.scroll-item-image {
+  height: 100%;
+  width: auto;
+  aspect-ratio: 4 / 3;
+  flex-shrink: 0;
+}
+
+.scroll-item-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.scroll-item-text {
+  width: 320px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 2rem;
+  background-color: #ffffff;
+  border-right: 1px solid #f3f4f6;
+  border-left: 1px solid #f3f4f6;
+}
+
+@media (min-width: 768px) {
+  .scroll-item-text {
+    width: 380px;
+    padding: 0 3rem;
+  }
+}
+
+/* Typography styles for left col metadata inside expanded card */
+.expanded-meta-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.share-links-block {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
 }
 
 /* ─── HORIZONTAL SCROLL PANEL ────────────────────────────── */

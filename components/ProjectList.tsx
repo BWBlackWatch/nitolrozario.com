@@ -20,7 +20,7 @@ export default function ProjectList({
   };
 
   return (
-    <section aria-label="Projects" className="mt-12">
+    <section aria-label="Projects" className="mt-12 md:mt-20 flex flex-col">
       {projects.map((project) => (
         <ProjectCard
           key={project.id}
