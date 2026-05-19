@@ -1,6 +1,4 @@
-import fs from "fs";
-import path from "path";
-import yaml from "js-yaml";
+import { projectsData } from "../data/projects";
 
 export interface ProjectSlide {
   image: string;
@@ -26,15 +24,8 @@ export interface Project {
   slides?: ProjectSlide[];
 }
 
-interface ProjectsData {
-  projects: Project[];
-}
-
 export function getProjects(): Project[] {
-  const filePath = path.join(process.cwd(), "data", "projects.yaml");
-  const fileContents = fs.readFileSync(filePath, "utf8");
-  const data = yaml.load(fileContents) as ProjectsData;
-  return data.projects;
+  return projectsData.projects as Project[];
 }
 
 export function getProjectById(id: string): Project | undefined {
