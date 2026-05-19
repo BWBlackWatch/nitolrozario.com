@@ -2,6 +2,13 @@ import fs from "fs";
 import path from "path";
 import yaml from "js-yaml";
 
+export interface ProjectSlide {
+  image: string;
+  title?: string;
+  subtitle?: string;
+  description?: string;
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -13,13 +20,10 @@ export interface Project {
   location: string;
   status: string;
   link?: string;
-  short_description: string;
-  long_description: string;
   tags: string[];
-  cover_video?: string;
   cover_color: string;
-  gallery?: string[];
-  images?: string[];
+  featured_image?: string;
+  slides?: ProjectSlide[];
 }
 
 interface ProjectsData {
