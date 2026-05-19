@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import type { Project } from "@/lib/getProjects";
-import ProjectRow from "./ProjectRow";
+import ProjectCard from "./ProjectCard";
 
 interface ProjectListProps {
   projects: Project[];
@@ -22,7 +22,7 @@ export default function ProjectList({
   return (
     <section aria-label="Projects" className="mt-12">
       {projects.map((project) => (
-        <ProjectRow
+        <ProjectCard
           key={project.id}
           project={project}
           isOpen={openId === project.id}

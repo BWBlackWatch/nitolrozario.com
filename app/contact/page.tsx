@@ -24,7 +24,7 @@ function AccordionItem({
       <button
         id={`accordion-${id}`}
         onClick={() => setOpen((v) => !v)}
-        className="w-full flex items-center justify-between px-5 md:px-10 py-5 text-left hover:bg-gray-50 transition-colors"
+        className="w-full flex items-center justify-between py-5 text-left hover:bg-gray-50 transition-colors"
         aria-expanded={open}
         aria-controls={`accordion-content-${id}`}
       >
@@ -48,7 +48,7 @@ function AccordionItem({
           transition: "max-height 0.4s cubic-bezier(0.77, 0, 0.18, 1)",
         }}
       >
-        <div className="px-5 md:px-10 pb-8 pt-2">{children}</div>
+        <div className="pb-8 pt-2">{children}</div>
       </div>
     </div>
   );
@@ -56,12 +56,13 @@ function AccordionItem({
 
 export default function ContactPage() {
   return (
-    <main className="page-enter">
+    <>
       <Header />
 
-      <div className="pt-12">
+      <main className="page-enter">
+      <div className="pt-12 site-container">
         {/* ── Header ───────────────────────────────────────── */}
-        <div className="px-5 md:px-10 py-14 md:py-20 border-b border-gray-100">
+        <div className="py-14 md:py-20 border-b border-gray-100">
           <h1 className="text-[10px] tracking-[0.2em] uppercase text-gray-400 mb-6">
             Contact
           </h1>
@@ -193,7 +194,7 @@ export default function ContactPage() {
         </div>
 
         {/* ── Bottom bar ──────────────────────────────────── */}
-        <div className="px-5 md:px-10 py-8 border-t border-gray-100 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div className="py-8 border-t border-gray-100 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <p className="text-[10px] tracking-[0.15em] uppercase text-gray-300">
             © {new Date().getFullYear()} Nitol Vincent Rozario
           </p>
@@ -203,5 +204,6 @@ export default function ContactPage() {
         </div>
       </div>
     </main>
+    </>
   );
 }

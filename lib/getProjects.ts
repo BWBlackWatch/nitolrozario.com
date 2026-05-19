@@ -19,6 +19,7 @@ export interface Project {
   cover_video?: string;
   cover_color: string;
   gallery?: string[];
+  images?: string[];
 }
 
 interface ProjectsData {

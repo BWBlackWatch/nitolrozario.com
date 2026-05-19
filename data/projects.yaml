@@ -20,6 +20,9 @@ projects:
     tags: ["CGI", "Advertisement", "Compositing", "Blender", "VFX"]
     cover_video: "https://youtu.be/coybV16neaM"
     cover_color: "#C8A96E"
+    images:
+      - "https://img.youtube.com/vi/coybV16neaM/maxresdefault.jpg"
+      - "https://img.youtube.com/vi/coybV16neaM/hqdefault.jpg"
 
   - id: funtastic-energy-biscuit
     title: "Funtastic Energy Biscuit"
@@ -41,6 +44,9 @@ projects:
     tags: ["CGI", "Product Animation", "Environment Design", "Compositing"]
     cover_video: "https://youtu.be/w9cVQAr7cxY"
     cover_color: "#E8C547"
+    images:
+      - "https://img.youtube.com/vi/w9cVQAr7cxY/maxresdefault.jpg"
+      - "https://img.youtube.com/vi/w9cVQAr7cxY/hqdefault.jpg"
 
   - id: bkash-luxury-offers
     title: "Bkash Luxury Offers"
@@ -62,6 +68,9 @@ projects:
     tags: ["CGI", "Advertisement", "VFX", "Background Extension"]
     cover_video: "https://youtu.be/4vx2JUIwaWM"
     cover_color: "#8B6914"
+    images:
+      - "https://img.youtube.com/vi/4vx2JUIwaWM/maxresdefault.jpg"
+      - "https://img.youtube.com/vi/4vx2JUIwaWM/hqdefault.jpg"
 
   - id: ride-secure-evie
     title: "Ride Secure — EVIE S1 & T1"
@@ -83,6 +92,9 @@ projects:
     tags: ["CGI", "Product Animation", "Hardsurface", "Automotive", "USA"]
     cover_video: "https://youtu.be/aRZ61Y6xsH0"
     cover_color: "#2B5EA7"
+    images:
+      - "https://img.youtube.com/vi/aRZ61Y6xsH0/maxresdefault.jpg"
+      - "https://img.youtube.com/vi/aRZ61Y6xsH0/hqdefault.jpg"
 
   - id: shahjalal-snacks-rebranding
     title: "Shahjalal Snacks Rebranding"
@@ -104,6 +116,9 @@ projects:
     tags: ["CGI", "Branding", "Food Visualization", "Animation", "Compositing"]
     cover_video: "https://youtu.be/R_NjxhITZdw"
     cover_color: "#D4522A"
+    images:
+      - "https://img.youtube.com/vi/R_NjxhITZdw/maxresdefault.jpg"
+      - "https://img.youtube.com/vi/R_NjxhITZdw/hqdefault.jpg"
 
   - id: crimson-strata
     title: "Crimson Strata"
@@ -125,6 +140,9 @@ projects:
     tags: ["Architecture", "BIM", "Animation", "Urban Design", "Conceptual"]
     cover_video: "https://youtu.be/9aYZlVenmEo"
     cover_color: "#8B2020"
+    images:
+      - "https://img.youtube.com/vi/9aYZlVenmEo/maxresdefault.jpg"
+      - "https://img.youtube.com/vi/9aYZlVenmEo/hqdefault.jpg"
 
   - id: center-animation-game-dev
     title: "Center for Animation, Game Dev & eSport"
@@ -146,6 +164,9 @@ projects:
     tags: ["Architecture", "BIM", "Animation", "Cultural", "Conceptual"]
     cover_video: "https://youtu.be/45pP7vBZ1aI"
     cover_color: "#1A3A5C"
+    images:
+      - "https://img.youtube.com/vi/45pP7vBZ1aI/maxresdefault.jpg"
+      - "https://img.youtube.com/vi/45pP7vBZ1aI/hqdefault.jpg"
 
   - id: saladology-debut
     title: "Saladology Debut Event"

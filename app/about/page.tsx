@@ -130,12 +130,13 @@ const languages = [
 
 export default function AboutPage() {
   return (
-    <main className="page-enter">
+    <>
       <Header />
+      <main className="page-enter">
 
-      <div className="pt-12">
+      <div className="pt-12 site-container">
         {/* ── Hero ──────────────────────────────────────────── */}
-        <div className="border-b border-gray-100 px-5 md:px-10 py-14 md:py-20 grid md:grid-cols-[260px_1fr] gap-10">
+        <div className="border-b border-gray-100 py-14 md:py-20 grid md:grid-cols-[260px_1fr] gap-10">
           <div>
             <h1 className="text-[10px] tracking-[0.2em] uppercase text-gray-400 mb-2">
               About
@@ -169,7 +170,7 @@ export default function AboutPage() {
 
         {/* ── Work Experience ───────────────────────────────── */}
         <section aria-label="Work Experience">
-          <div className="px-5 md:px-10 pt-10 pb-4 grid md:grid-cols-[260px_1fr]">
+          <div className="pt-10 pb-4 grid md:grid-cols-[260px_1fr]">
             <h2 className="text-[10px] tracking-[0.2em] uppercase text-gray-400">
               Experience
             </h2>
@@ -177,7 +178,7 @@ export default function AboutPage() {
           {workExperience.map((job, i) => (
             <div
               key={i}
-              className="grid md:grid-cols-[260px_1fr] border-t border-gray-100 px-5 md:px-10 py-7 gap-4 md:gap-10"
+              className="grid md:grid-cols-[260px_1fr] border-t border-gray-100 py-7 gap-4 md:gap-10"
             >
               <div>
                 <p className="text-[11px] tracking-[0.1em] uppercase text-gray-500 mb-1">
@@ -208,7 +209,7 @@ export default function AboutPage() {
 
         {/* ── Education ─────────────────────────────────────── */}
         <section aria-label="Education">
-          <div className="px-5 md:px-10 pt-10 pb-4 grid md:grid-cols-[260px_1fr]">
+          <div className="pt-10 pb-4 grid md:grid-cols-[260px_1fr]">
             <h2 className="text-[10px] tracking-[0.2em] uppercase text-gray-400">
               Education
             </h2>
@@ -216,7 +217,7 @@ export default function AboutPage() {
           {education.map((edu, i) => (
             <div
               key={i}
-              className="grid md:grid-cols-[260px_1fr] border-t border-gray-100 px-5 md:px-10 py-7 gap-4 md:gap-10"
+              className="grid md:grid-cols-[260px_1fr] border-t border-gray-100 py-7 gap-4 md:gap-10"
             >
               <div>
                 <p className="text-[11px] tracking-[0.1em] uppercase text-gray-500 mb-1">
@@ -241,7 +242,7 @@ export default function AboutPage() {
 
         {/* ── Skills ────────────────────────────────────────── */}
         <section aria-label="Skills" className="border-t border-gray-100">
-          <div className="px-5 md:px-10 py-10 grid md:grid-cols-[260px_1fr] gap-6 md:gap-10">
+          <div className="py-10 grid md:grid-cols-[260px_1fr] gap-6 md:gap-10">
             <h2 className="text-[10px] tracking-[0.2em] uppercase text-gray-400">
               Software Skills
             </h2>
@@ -260,7 +261,7 @@ export default function AboutPage() {
 
         {/* ── Awards ────────────────────────────────────────── */}
         <section aria-label="Awards and Honours">
-          <div className="px-5 md:px-10 pt-10 pb-4 grid md:grid-cols-[260px_1fr]">
+          <div className="pt-10 pb-4 grid md:grid-cols-[260px_1fr]">
             <h2 className="text-[10px] tracking-[0.2em] uppercase text-gray-400">
               Honours & Awards
             </h2>
@@ -268,7 +269,7 @@ export default function AboutPage() {
           {awards.map((award, i) => (
             <div
               key={i}
-              className="grid md:grid-cols-[260px_1fr] border-t border-gray-100 px-5 md:px-10 py-5 gap-4 md:gap-10"
+              className="grid md:grid-cols-[260px_1fr] border-t border-gray-100 py-5 gap-4 md:gap-10"
             >
               <p className="text-[11px] tracking-[0.1em] uppercase text-gray-400">
                 {award.year}
@@ -305,7 +306,7 @@ export default function AboutPage() {
           aria-label="Languages"
           className="border-t border-gray-100 border-b"
         >
-          <div className="px-5 md:px-10 py-10 grid md:grid-cols-[260px_1fr] gap-6 md:gap-10">
+          <div className="py-10 grid md:grid-cols-[260px_1fr] gap-6 md:gap-10">
             <h2 className="text-[10px] tracking-[0.2em] uppercase text-gray-400">
               Languages
             </h2>
@@ -323,5 +324,6 @@ export default function AboutPage() {
         </section>
       </div>
     </main>
+    </>
   );
 }

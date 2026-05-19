@@ -6,11 +6,11 @@ export default function HomePage() {
   const projects = getProjects();
 
   return (
-    <main className="page-enter">
+    <>
       <Header />
-      <div className="pt-12">
+      <main className="page-enter pt-12 site-container">
         <ProjectList projects={projects} />
-      </div>
-    </main>
+      </main>
+    </>
   );
 }
